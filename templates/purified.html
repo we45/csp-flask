@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>DOMPurify Demonstration</title>
+    <script src="{{ url_for('static', filename = 'purify.js') }}"></script>
+</head>
+<body>
+<h2>DOMPurify Demo</h2>
+<div>
+    <h3>Results</h3>
+    <p id="pure"></p>
+</div>
+<script>
+    'use strict';
+
+    var clean = DOMPurify.sanitize('<p>HELLO<iframe/\/src=JavScript:alert&lpar;1)></ifrAMe><br>goodbye</p>');
+    document.getElementById("pure").innerHTML = "Payload is rendered as: " + clean;
+</script>
+</body>
+</html>

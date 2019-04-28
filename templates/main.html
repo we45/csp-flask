@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>XSS CSP Demonstration Application</title>
+</head>
+<body>
+<h2>XSS Demo with Multiple Contexts and Security Headers</h2>
+<h3>Raw Payloads</h3>
+<form method="post" action="raw">
+    Payload: <input type="text" name="raw_payload" /><br>
+    <input type="submit" name="raw-payload" value="Submit Raw Payload">
+</form>
+<br>
+<h3>Content-Security-Policy Header</h3>
+<form method="post" action="raw-with-csp">
+    Payload: <input type="text" name="raw_payload" /><br>
+    CSP String: <input type="text" name="csp_payload" /><br>
+    <input type="submit" name="raw-payload" value="Raw with CSP">
+</form>
+<br>
+<h3>Session Attributes</h3>
+<form method="post" action="session-attributes">
+    Payload: <input type="text" name="raw_payload" /><br>
+    <input type="submit" name="raw-payload" value="Secure Session Attributes">
+</form>
+<br>
+<h3>CSP Bypass</h3>
+<form method="post" action="csp-bypass">
+    Payload: <input type="text" name="raw_payload" /><br>
+    <input type="submit" name="raw-payload" value="CSP Bypass Payload">
+</form>
+<br>
+<h3>DOM Purify</h3>
+<form method="post" action="dompurify">
+    <input type="submit" name="raw-payload" value="DOMPurify">
+</form>
+<br>
+</body>
+</html>

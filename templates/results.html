@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>XSS CSP Demonstration Application</title>
+</head>
+<body>
+<h2>XSS Demo with Multiple Contexts and Security Headers</h2>
+<script src="{{ payload }}"></script>
+
+<div>
+    <h3>Results</h3>
+    <p>Payload in HTML Entities (Escaped): {{ payload }}</p>
+    <p>Payload in HTML Entities (Unescaped): {{ payload|safe }}</p>
+    <p>Payload in HTML Attributes (escaped) <a href="{{ payload }}">Some Link</a></p>
+    <p>Payload in HTML Attributes (unescaped) <a href="{{ payload|safe }}">Some Link</a></p>
+    <p onclick="{{ payload }}">Payload in JavaScript Context</p>
+</div>
+</body>
+</html>
