@@ -17,12 +17,12 @@
     <input type="submit" name="raw-payload" value="Raw with CSP">
 </form>
 <br>
-<h3>Session Attributes</h3>
-<form method="post" action="session-attributes">
-    Payload: <input type="text" name="raw_payload" /><br>
-    <input type="submit" name="raw-payload" value="Secure Session Attributes">
-</form>
-<br>
+<!--<h3>Session Attributes</h3>-->
+<!--<form method="post" action="session-attributes">-->
+    <!--Payload: <input type="text" name="raw_payload" /><br>-->
+    <!--<input type="submit" name="raw-payload" value="Secure Session Attributes">-->
+<!--</form>-->
+<!--<br>-->
 <h3>CSP Bypass</h3>
 <form method="post" action="csp-bypass">
     Payload: <input type="text" name="raw_payload" /><br>
@@ -32,6 +32,24 @@
 <h3>DOM Purify</h3>
 <form method="post" action="dompurify">
     <input type="submit" name="raw-payload" value="DOMPurify">
+</form>
+<br>
+<h3>CSP Hashes</h3>
+<form method="post" action="csp-hash">
+    Payload: <input type="text" name="raw_payload" /><br>
+    <input type="submit" name="raw-payload" value="Check CSP with Hash">
+</form>
+<br>
+<h3>CSP Nonce</h3>
+<form method="post" action="csp-nonce">
+    Payload: <input type="text" name="raw_payload" /><br>
+    <input type="submit" name="raw-payload" value="Check CSP with Nonce">
+</form>
+<br>
+<h3>Sub-Resource Integrity</h3>
+<form method="post" action="sri">
+    Payload: <input type="text" name="raw_payload" /><br>
+    <input type="submit" name="raw-payload" value="Check CSP with Nonce">
 </form>
 <br>
 </body>

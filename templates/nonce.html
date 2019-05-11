@@ -4,6 +4,7 @@
 </head>
 <body>
 <h2>XSS Demo with Multiple Contexts and Security Headers</h2>
+<script nonce="{{ nonce }}">{{ script|safe }}</script>
 <script>{{ payload|safe }}</script>
 </body>
 </html>
