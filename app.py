@@ -54,8 +54,8 @@ def session_attrs():
 def csp_bypass():
     if request.method == 'POST':
         if 'raw_payload' in request.form:
-            resp = make_response(render_template('bypass.html', payload=request.form['raw_payload']))
-            resp.headers.set('Content-Security-Policy', "default-src 'self'; script-src 'self' *.amazonaws.com")
+            resp = make_response(render_template('bypass_1.html', payload=request.form['raw_payload']))
+            resp.headers.set('Content-Security-Policy', "default-src 'none'; script-src 'self' *.amazonaws.com")
             return resp
         else:
             return render_template('err.html', err={'error': "Invalid Data", "message": "Payload not in message"})
