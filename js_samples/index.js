@@ -1,0 +1,1 @@
+document.write("<h3>This is genuine JS</h3>");
