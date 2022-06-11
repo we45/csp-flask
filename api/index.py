@@ -10,7 +10,7 @@ app.secret_key = 'any random string'
 app.permanent_session_lifetime = datetime.timedelta(days=365)
 
 
-@app.route('/')
+@app.route('/main')
 def main_page():
     if request.method == 'GET':
         return render_template('main.html')
@@ -55,7 +55,7 @@ def csp_bypass():
     if request.method == 'POST':
         if 'raw_payload' in request.form:
             resp = make_response(render_template('bypass_1.html', payload=request.form['raw_payload']))
-            resp.headers.set('Content-Security-Policy', "default-src 'none'; script-src 'self' *.amazonaws.com")
+            resp.headers.set('Content-Security-Policy', "default-src 'none'; script-src 'self' *.githubusercontent.com")
             return resp
         else:
             return render_template('err.html', err={'error': "Invalid Data", "message": "Payload not in message"})
@@ -66,7 +66,7 @@ def csp_hash():
     if request.method == 'POST':
         if 'raw_payload' in request.form:
             resp = make_response(render_template('bypass.html', payload=request.form['raw_payload']))
-            static_js = requests.get('https://s3-us-west-2.amazonaws.com/we45-csp-test/index.js').content.strip()
+            static_js = requests.get('https://gist.githubusercontent.com/abhaybhargav/936f1e90c715e8ef372c936b2dcc50a4/raw/c8244d695fdad8eb68855c7c9e9350a5591598cb/index.js').content.strip()
             csp_hash = b64encode(sha256(static_js).digest()).decode()
             resp.headers.set('Content-Security-Policy',
                              "default-src 'self'; script-src 'sha256-{}'".format(csp_hash))
@@ -79,7 +79,7 @@ def csp_hash():
 def csp_nonce():
     if request.method == 'POST':
         if 'raw_payload' in request.form:
-            static_js = requests.get('https://s3-us-west-2.amazonaws.com/we45-csp-test/index.js').content.strip()
+            static_js = requests.get('https://gist.githubusercontent.com/abhaybhargav/936f1e90c715e8ef372c936b2dcc50a4/raw/c8244d695fdad8eb68855c7c9e9350a5591598cb/index.js').content.strip()
             csp_nonce = uuid4().hex
             resp = make_response(
                 render_template('nonce.html', payload=request.form['raw_payload'], nonce=csp_nonce,

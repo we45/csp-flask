@@ -1,6 +1,11 @@
-click==7.0
-flask==1.0.2
+certifi==2022.5.18.1
+charset-normalizer==2.0.12
+Click==7.0
+Flask==1.0.2
+idna==3.3
 itsdangerous==1.1.0
-jinja2==2.10.1
-markupsafe==1.1.1
-werkzeug==0.15.2
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+requests==2.28.0
+urllib3==1.26.9
+Werkzeug==0.15.2
